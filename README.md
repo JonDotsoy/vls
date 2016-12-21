@@ -39,6 +39,8 @@ console.log(myResult) // {v: 3,text:'value to key2'}
 
 ### References on ReactJS
 
+> See it https://facebook.github.io/react/docs/refs-and-the-dom.html
+
 ```javascript
 class myComponent extends React.Component {
   constructor(props) {
