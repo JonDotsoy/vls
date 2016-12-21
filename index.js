@@ -1,7 +1,8 @@
 const curry = require('lodash.curry')
 const isFunction = require('lodash.isfunction')
-const isArray = require('lodash.isarray')
 const isObject = require('lodash.isobject')
+
+const isArray = Array.isArray
 
 const VALUES = Symbol('Values Vls')
 
