@@ -1,7 +1,9 @@
 const curry = require('lodash.curry')
 const isFunction = require('lodash.isfunction')
+const isArray = require('lodash.isarray')
+const isObject = require('lodash.isobject')
 
-const VALUES = Symbol('Values')
+const VALUES = Symbol('Values Vls')
 
 function setter (name, value) {
   this.ref[VALUES].set(name, value)
@@ -28,8 +30,10 @@ function findEntry (validator) {
   const entries = this.ref.entries()
 
   while (true) {
-    const { done, value:values } = entries.next()
+    const { done, value: values } = entries.next()
+
     if (done === true || returned !== undefined) break
+
     const [index, value] = values
 
     if (validator.apply(this.ref, [ value, index, this.ref[VALUES] ])) {
@@ -48,11 +52,23 @@ function findKey (validator) {
   return (findEntry.apply(this, [validator]) || [])[0]
 }
 
-function vls () {
-  self = new Object
+function Vls (initialValues = null) {
+  if (initialValues !== null && VALUES in initialValues) return initialValues
+
+  let initialMap
+
+  if (initialValues === null) {
+    initialMap = []
+  } if (isArray(initialValues)) {
+    initialMap = initialValues
+  } else if (isObject(initialValues)) {
+    initialMap = Object.entries(initialValues)
+  }
+
+  const self = {}
 
   self.ref = ref.bind(self)
-  self.ref[VALUES] = new Map()
+  self.ref[VALUES] = new Map(initialMap)
   self.ref.set = setter.bind(self)
   self.ref.get = getter.bind(self)
   self.ref.define = curry(setter.bind(self))
@@ -77,18 +93,13 @@ function vls () {
     get: () => self.ref[VALUES].size
   })
 
+  self.ref.Vls = Vls
+
   return self.ref
 }
 
-global.vls = vls
-
-const e = new vls
-global.e = e
-
-e.set("a", "a:3")
-e.set("b", "b:6")
-e.set("c", "c:9")
+Vls.Vls = Vls
 
 exports = module.exports
-exports.default = vls
-exports.vls = vls
+exports.default = Vls
+exports.Vls = Vls
