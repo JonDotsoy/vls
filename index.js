@@ -60,7 +60,7 @@ function Vls (initialValues = null) {
 
   if (initialValues === null) {
     initialMap = []
-  } if (isArray(initialValues)) {
+  } else if (initialValues instanceof Map || isArray(initialValues)) {
     initialMap = initialValues
   } else if (isObject(initialValues)) {
     initialMap = Object.entries(initialValues)
