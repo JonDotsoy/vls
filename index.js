@@ -16,9 +16,9 @@ function getter (name) {
 
 function ref (name, defineValue = null) {
   if (defineValue === null) {
-    return this.ref.getter(name)
+    return this.ref.get(name)
   } else {
-    return this.ref.setter(name, defineValue)
+    return this.ref.set(name, defineValue)
   }
 }
 
