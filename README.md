@@ -1,6 +1,10 @@
 # VLS
 VLS or (Vertical Layer State) is a persistent object, similar to Map.
 
+## Docs
+- [API](./API.md)
+
+
 ## Examples
 
 ### One example similar to a Map Object
