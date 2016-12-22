@@ -2,7 +2,7 @@
   "name": "vls",
   "title": "Vls Persistent Data Flux",
   "description": "A Persistent Data Flux",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "dependencies": {
     "lodash.curry": "^4.1.1",
     "lodash.isfunction": "^3.0.8",
