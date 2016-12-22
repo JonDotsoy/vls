@@ -53,23 +53,25 @@ function findKey (validator) {
   return (findEntry.apply(this, [validator]) || [])[0]
 }
 
-function Vls (initialValues = null) {
-  if (initialValues !== null && VALUES in initialValues) return initialValues
-
-  let initialMap
-
-  if (initialValues === null) {
-    initialMap = []
-  } else if (initialValues instanceof Map || isArray(initialValues)) {
-    initialMap = initialValues
-  } else if (isObject(initialValues)) {
-    initialMap = Object.entries(initialValues)
+function parseToMapValue (value = null) {
+  if (value === null) {
+    return []
+  } else if (value instanceof Map || isArray(value)) {
+    return value
+  } else if (isObject(value)) {
+    return Object.entries(value)
+  } else {
+    return []
   }
+}
+
+function Vls (initValues = null) {
+  if (initValues !== null && VALUES in initValues) return initValues
 
   const self = {}
 
   self.ref = ref.bind(self)
-  self.ref[VALUES] = new Map(initialMap)
+  self.ref[VALUES] = new Map(parseToMapValue(initValues))
   self.ref.set = setter.bind(self)
   self.ref.get = getter.bind(self)
   self.ref.define = curry(setter.bind(self))
@@ -104,3 +106,5 @@ Vls.Vls = Vls
 exports = module.exports
 exports.default = Vls
 exports.Vls = Vls
+
+

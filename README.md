@@ -59,6 +59,7 @@ class myComponent extends React.Component {
   }
 
   render () {
+    this.ref.clear()
     const refd = this.ref.define
 
     return <div ref={refd("root")}>
