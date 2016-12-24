@@ -2,7 +2,7 @@
   "name": "vls",
   "title": "Vls Persistent Data Flux",
   "description": "A Persistent Data Flux",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "main": "index.js",
   "unpkg": "dist/vls.min.js",
   "scripts": {
