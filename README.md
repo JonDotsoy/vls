@@ -1,5 +1,5 @@
 # VLS
-VLS is a persistent object similar to [Map][map-object].
+VLS is a persistent object *similar to [Map][map-object]*.
 
 ## Quick start
 
