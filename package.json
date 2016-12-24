@@ -2,13 +2,29 @@
   "name": "vls",
   "title": "Vls Persistent Data Flux",
   "description": "A Persistent Data Flux",
-  "version": "0.1.7",
+  "version": "0.1.8",
+  "main": "index.js",
+  "unpkg": "dist/vls.min.js",
+  "scripts": {
+    "build": "gulp build",
+    "prepublish": "gulp"
+  },
   "dependencies": {
     "lodash.curry": "^4.1.1",
     "lodash.isfunction": "^3.0.8",
-    "lodash.isobject": "^3.0.2"
+    "lodash.isobject": "^3.0.2",
+    "lodash.isundefined": "^3.0.1"
   },
-  "main": "index.js",
+  "devDependencies": {
+    "babel-preset-latest": "^6.16.0",
+    "babelify": "^7.3.0",
+    "browserify": "^13.1.1",
+    "gulp": "^3.9.1",
+    "gulp-uglify": "^2.0.0",
+    "uglify-js": "^2.7.5",
+    "vinyl": "^2.0.1",
+    "vinyl-source-stream": "^1.1.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/JonDotsoy/vls.git"

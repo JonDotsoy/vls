@@ -1,9 +1,11 @@
 # VLS
-VLS or (Vertical Layer State) is a persistent object, similar to Map.
+VLS is a persistent object similar to [Map][map-object].
 
-## Docs
-- [API](./API.md)
-
+## Docs and examples
+- [API](./docs/API.md)
+- [Examples](#examples)
+- Documentation
+  - Basic usage
 
 ## Examples
 
@@ -75,3 +77,4 @@ class myComponent extends React.Component {
 }
 ```
 
+[map-object]: https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Map

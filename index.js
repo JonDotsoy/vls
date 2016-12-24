@@ -99,6 +99,9 @@ function Vls (initValues = null) {
   self.ref[Symbol.toStringTag] = "Vls"
 
   self.ref.toString = Object.prototype.toString.bind(self.ref)
+  self.ref.toJSON = (function () {
+    return [...this]
+  }).bind(self.ref)
 
   self.ref.Vls = Vls
 
