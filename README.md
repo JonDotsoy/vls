@@ -1,6 +1,16 @@
 # VLS
 VLS is a persistent object similar to [Map][map-object].
 
+## Quick start
+
+##### Using NPM
+
+    npm install --save vls
+
+##### Using unpkg CDN
+
+    <script src="https://unpkg.com/vls"></script>
+
 ## Docs and examples
 - [API](./docs/API.md)
 - [Examples](#examples)
