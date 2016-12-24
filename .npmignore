@@ -52,4 +52,5 @@ jspm_packages
 .yarn-integrity
 Gulpfile.js
 _config.yml
-
+!dist/vls.js
+!dist/vls.min.js
